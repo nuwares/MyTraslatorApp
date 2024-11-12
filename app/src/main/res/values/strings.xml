@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My traslator app</string>
+    <string name="bottom_nav_camera">Camera</string>
+    <string name="bottom_nav_chat">Chat</string>
+    <string name="bottom_nav_history">History</string>
+    <string name="bottom_nav_fav">Favorite</string>
+    <string name="bottom_nav_translate">Translate</string>
+</resources>
