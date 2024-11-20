@@ -11,10 +11,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
+
 @Composable
-fun TextInput(language: String, text: String, onTextChange: (String) -> Unit, onClearText: () -> Unit) {
-    Column {
-        Text(text = language)
+fun TextInput(text: String, onTextChange: (String) -> Unit, onClearText: () -> Unit, modifier: Modifier = Modifier) {
+    Column(modifier = modifier) {
         OutlinedTextField(value = text, onValueChange = onTextChange, modifier = Modifier.fillMaxWidth(), placeholder = { Text("Enter text here...") }, trailingIcon = {
             IconButton(onClick = onClearText) {
                 Icon(Icons.Default.Clear, contentDescription = "Clear text")

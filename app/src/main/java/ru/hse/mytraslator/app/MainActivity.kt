@@ -26,6 +26,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
+import ru.hse.mytraslator.app.screen.FavoriteScreen
+import ru.hse.mytraslator.app.screen.HistoryScreen
 import ru.hse.mytraslator.app.screen.TranslationScreen
 import ru.hse.mytraslator.app.ui.theme.MyTraslatorAppTheme
 
@@ -41,7 +43,8 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-private val Destinations = listOf("chat", "camera", "translate", "history", "favorite")
+//private val Destinations = listOf("chat", "camera", "translate", "history", "favorite")
+private val Destinations = listOf("translate", "history", "favorite")
 
 object NavigationDefaults {
     @Composable
@@ -66,26 +69,33 @@ fun MainScreen() {
             navController = navController,
             startDestination = "translate"
         ) {
-            composable("chat") {}
-            composable("camera") {}
+//            composable("chat") {}
+//            composable("camera") {}
             composable("translate") { TranslationScreen() }
-            composable("history") {}
-            composable("favorite") {}
+            composable("history") { HistoryScreen() }
+            composable("favorite") { FavoriteScreen() }
         }
     }
 }
 
 @Composable
 fun BottomNavigationBar(navController: NavController) {
+    /*
     var selectedItem by rememberSaveable { mutableIntStateOf(2) }
     val icons = listOf(
         ImageVector.vectorResource(R.drawable.ic_chat),
         ImageVector.vectorResource(R.drawable.ic_camera),
-        ImageVector.vectorResource(R.drawable.ic_translate),
+        ImageVector.vectorResource(R.drawable.ic_translate_fg),
         ImageVector.vectorResource(R.drawable.ic_history),
         ImageVector.vectorResource(R.drawable.ic_fav),
     )
-
+    */
+    var selectedItem by rememberSaveable { mutableIntStateOf(0) }
+    val icons = listOf(
+        ImageVector.vectorResource(R.drawable.ic_translate_fg),
+        ImageVector.vectorResource(R.drawable.ic_history),
+        ImageVector.vectorResource(R.drawable.ic_fav),
+    )
     NavigationBar(
         content = {
             Destinations.forEachIndexed { index, item ->

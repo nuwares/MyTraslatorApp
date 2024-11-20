@@ -11,8 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun TranslateButton(onTranslate: () -> Unit) {
-    Box(modifier = Modifier.fillMaxWidth()) {
+fun TranslateButton(onTranslate: () -> Unit, modifier: Modifier = Modifier) {
+    Box(modifier = modifier.fillMaxWidth()) {
         Button(
             onClick = onTranslate,
             modifier = Modifier
